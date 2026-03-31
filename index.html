@@ -16,25 +16,15 @@
       align-items: center;
       padding: 32px 16px;
     }
-    h1 {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: #a78bfa;
-      margin-bottom: 4px;
-      letter-spacing: 0.5px;
-    }
-    .subtitle {
-      font-size: 0.85rem;
-      color: #6b7280;
-      margin-bottom: 28px;
-    }
+    h1 { font-size: 1.6rem; font-weight: 700; color: #a78bfa; margin-bottom: 4px; letter-spacing: 0.5px; }
+    .subtitle { font-size: 0.85rem; color: #6b7280; margin-bottom: 28px; }
     .card {
       background: #1a1a2e;
       border: 1px solid #2d2d4e;
       border-radius: 16px;
       padding: 28px 32px;
       width: 100%;
-      max-width: 520px;
+      max-width: 560px;
       margin-bottom: 24px;
     }
     label {
@@ -45,12 +35,7 @@
       color: #8b8ba7;
       margin-bottom: 8px;
     }
-    .input-row {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      margin-bottom: 20px;
-    }
+    .input-row { display: flex; gap: 12px; align-items: center; margin-bottom: 20px; }
     input[type=number] {
       background: #0f0f1a;
       border: 1px solid #3a3a5c;
@@ -63,22 +48,27 @@
       transition: border 0.2s;
     }
     input[type=number]:focus { border-color: #7c3aed; }
-    .unit {
-      font-size: 0.85rem;
-      color: #6b7280;
-      white-space: nowrap;
-    }
-    .slider-label-row {
+    .unit { font-size: 0.85rem; color: #6b7280; white-space: nowrap; }
+
+    /* Slider + manual input combined */
+    .diam-control { margin-bottom: 20px; }
+    .diam-top-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+    .diam-top-row label { margin-bottom: 0; }
+    .diam-manual {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      margin-bottom: 8px;
+      gap: 6px;
     }
-    .slider-val {
-      font-size: 1.1rem;
+    .diam-manual input[type=number] {
+      width: 90px;
+      padding: 6px 10px;
+      font-size: 1rem;
       font-weight: 700;
       color: #a78bfa;
+      border-color: #4b3a7e;
+      text-align: right;
     }
+    .diam-manual input[type=number]:focus { border-color: #7c3aed; }
     input[type=range] {
       -webkit-appearance: none;
       width: 100%;
@@ -90,25 +80,19 @@
     }
     input[type=range]::-webkit-slider-thumb {
       -webkit-appearance: none;
-      width: 20px;
-      height: 20px;
+      width: 20px; height: 20px;
       border-radius: 50%;
       background: #7c3aed;
       cursor: pointer;
       box-shadow: 0 0 8px #7c3aed88;
     }
-    .range-hints {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.72rem;
-      color: #4b4b6b;
-      margin-bottom: 20px;
-    }
+    .range-hints { display: flex; justify-content: space-between; font-size: 0.72rem; color: #4b4b6b; }
+
     .results-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
     }
     .result-box {
       background: #0f0f1a;
@@ -117,37 +101,32 @@
       padding: 14px 16px;
       text-align: center;
     }
-    .result-box .val {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: #34d399;
-    }
-    .result-box.highlight .val {
-      color: #f59e0b;
-    }
-    .result-box .lbl {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      color: #6b7280;
-      margin-top: 4px;
-    }
-    .note {
-      font-size: 0.78rem;
-      color: #6b7280;
+    .result-box .val { font-size: 1.5rem; font-weight: 800; color: #34d399; }
+    .result-box.highlight .val { color: #f59e0b; }
+    .result-box .lbl { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.8px; color: #6b7280; margin-top: 4px; }
+    .note { font-size: 0.78rem; color: #6b7280; text-align: center; margin-top: 8px; }
+
+    /* Suggestions */
+    .suggest-title { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1px; color: #8b8ba7; margin-bottom: 10px; }
+    .suggest-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .suggest-box {
+      background: #0f0f1a;
+      border: 1px solid #2d2d4e;
+      border-radius: 10px;
+      padding: 14px 16px;
       text-align: center;
-      margin-top: 8px;
+      cursor: pointer;
+      transition: border 0.2s, background 0.2s;
     }
+    .suggest-box:hover { border-color: #7c3aed; background: #1a1a3e; }
+    .suggest-box .s-val { font-size: 1.3rem; font-weight: 800; color: #a78bfa; }
+    .suggest-box .s-lbl { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.8px; color: #6b7280; margin-top: 4px; }
+    .suggest-box .s-sub { font-size: 0.75rem; color: #4b4b6b; margin-top: 2px; }
+    .suggest-box .s-arrow { font-size: 1rem; color: #6b7280; margin-bottom: 2px; }
+
     /* Canvas */
-    .canvas-wrap {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    canvas {
-      border-radius: 50%;
-      display: block;
-    }
+    .canvas-wrap { display: flex; justify-content: center; align-items: center; }
+    canvas { display: block; }
     .perfect-badge {
       display: inline-block;
       margin-top: 12px;
@@ -161,6 +140,29 @@
     .badge-close   { background: #422006; color: #f59e0b; }
     .badge-off     { background: #450a0a; color: #f87171; }
     .badge-wrap    { text-align: center; }
+
+    /* Toggle inner/outer */
+    .toggle-row {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .toggle-btn {
+      padding: 6px 18px;
+      border-radius: 999px;
+      border: 1px solid #3a3a5c;
+      background: #0f0f1a;
+      color: #8b8ba7;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .toggle-btn.active {
+      background: #7c3aed;
+      border-color: #7c3aed;
+      color: #fff;
+    }
   </style>
 </head>
 <body>
@@ -175,12 +177,17 @@
     <span class="unit">LED/m</span>
   </div>
 
-  <div class="slider-label-row">
-    <label style="margin-bottom:0">Diametro del cerchio</label>
-    <span class="slider-val"><span id="diamVal">150</span> mm</span>
+  <div class="diam-control">
+    <div class="diam-top-row">
+      <label>Diametro del cerchio</label>
+      <div class="diam-manual">
+        <input type="number" id="diamInput" value="150" min="10" max="1000" step="1" />
+        <span class="unit">mm</span>
+      </div>
+    </div>
+    <input type="range" id="diamSlider" min="10" max="1000" step="1" value="150" />
+    <div class="range-hints"><span>10 mm</span><span>1000 mm</span></div>
   </div>
-  <input type="range" id="diamSlider" min="10" max="1000" step="1" value="150" />
-  <div class="range-hints"><span>10 mm</span><span>1000 mm</span></div>
 
   <div class="results-grid">
     <div class="result-box">
@@ -203,9 +210,33 @@
   <div class="note" id="noteText"></div>
 </div>
 
+<!-- Suggerimenti diametri perfetti -->
 <div class="card">
+  <div class="suggest-title">🎯 Diametri con distribuzione perfetta (0%)</div>
+  <div class="suggest-grid">
+    <div class="suggest-box" id="suggestLower" onclick="applySuggest('lower')">
+      <div class="s-arrow">⬇ Inferiore</div>
+      <div class="s-val" id="sLowerVal">—</div>
+      <div class="s-lbl" id="sLowerLed">— LED</div>
+      <div class="s-sub" id="sLowerDelta"></div>
+    </div>
+    <div class="suggest-box" id="suggestUpper" onclick="applySuggest('upper')">
+      <div class="s-arrow">⬆ Superiore</div>
+      <div class="s-val" id="sUpperVal">—</div>
+      <div class="s-lbl" id="sUpperLed">— LED</div>
+      <div class="s-sub" id="sUpperDelta"></div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="toggle-row">
+    <button class="toggle-btn active" id="btnInner" onclick="setMode('inner')">Striscia Interna</button>
+    <button class="toggle-btn active" id="btnBoth"  onclick="setMode('both')">Entrambe</button>
+    <button class="toggle-btn" id="btnOuter" onclick="setMode('outer')">Striscia Esterna</button>
+  </div>
   <div class="canvas-wrap">
-    <canvas id="ringCanvas" width="400" height="400"></canvas>
+    <canvas id="ringCanvas" width="420" height="420"></canvas>
   </div>
   <div class="badge-wrap">
     <span class="perfect-badge" id="qualityBadge">—</span>
@@ -213,39 +244,91 @@
 </div>
 
 <script>
-  const ledsInput   = document.getElementById('ledsPerMeter');
-  const diamSlider  = document.getElementById('diamSlider');
-  const diamVal     = document.getElementById('diamVal');
-  const resCirc     = document.getElementById('resCirc');
-  const resLedExact = document.getElementById('resLedExact');
-  const resLedRound = document.getElementById('resLedRound');
-  const resSpacing  = document.getElementById('resSpacing');
-  const noteText    = document.getElementById('noteText');
-  const canvas      = document.getElementById('ringCanvas');
-  const ctx         = canvas.getContext('2d');
-  const badge       = document.getElementById('qualityBadge');
+  const ledsInput  = document.getElementById('ledsPerMeter');
+  const diamSlider = document.getElementById('diamSlider');
+  const diamInput  = document.getElementById('diamInput');
+  const resCirc    = document.getElementById('resCirc');
+  const resLedExact= document.getElementById('resLedExact');
+  const resLedRound= document.getElementById('resLedRound');
+  const resSpacing = document.getElementById('resSpacing');
+  const noteText   = document.getElementById('noteText');
+  const canvas     = document.getElementById('ringCanvas');
+  const ctx        = canvas.getContext('2d');
+  const badge      = document.getElementById('qualityBadge');
+
+  let drawMode = 'both'; // 'inner' | 'outer' | 'both'
+  let suggLower = null, suggUpper = null;
+
+  function setMode(m) {
+    drawMode = m;
+    document.getElementById('btnInner').classList.toggle('active', m === 'inner');
+    document.getElementById('btnOuter').classList.toggle('active', m === 'outer');
+    document.getElementById('btnBoth').classList.toggle('active',  m === 'both');
+    calculate();
+  }
+
+  // Find nearest diameters where LED count is integer (error ~ 0)
+  function findPerfectDiameters(ledsPerMeter, currentDiam) {
+    const pitchMm = 1000 / ledsPerMeter;
+    const currentLeds = Math.round(Math.PI * currentDiam / pitchMm);
+
+    // lower: find biggest N < currentLeds such that diam = N*pitch/PI
+    let nLower = currentLeds - 1;
+    if (nLower < 1) nLower = 1;
+    const dLower = (nLower * pitchMm) / Math.PI;
+
+    // upper: N+1
+    let nUpper = currentLeds + 1;
+    // edge case: if current is already perfect, lower=currentLeds-1, upper=currentLeds+1
+    const exactLeds = Math.PI * currentDiam / pitchMm;
+    const err = Math.abs(exactLeds - currentLeds) / exactLeds * 100;
+    if (err < 0.01) {
+      nLower = currentLeds - 1 < 1 ? 1 : currentLeds - 1;
+      nUpper = currentLeds + 1;
+    } else if (exactLeds < currentLeds) {
+      nLower = currentLeds - 1 < 1 ? 1 : currentLeds - 1;
+      nUpper = currentLeds;
+    } else {
+      nLower = currentLeds;
+      nUpper = currentLeds + 1;
+    }
+
+    return {
+      lower: { diam: (nLower * pitchMm) / Math.PI, leds: nLower },
+      upper: { diam: (nUpper * pitchMm) / Math.PI, leds: nUpper }
+    };
+  }
+
+  function applySuggest(which) {
+    const val = which === 'lower' ? suggLower : suggUpper;
+    if (!val) return;
+    const d = Math.round(val.diam * 10) / 10;
+    diamInput.value  = d;
+    diamSlider.value = Math.min(1000, Math.max(10, Math.round(d)));
+    calculate();
+  }
 
   function calculate() {
     const ledsPerMeter = parseFloat(ledsInput.value) || 60;
-    const diamMm       = parseFloat(diamSlider.value);
-    diamVal.textContent = diamMm;
+    let diamMm = parseFloat(diamInput.value);
+    if (isNaN(diamMm) || diamMm < 1) diamMm = 10;
 
-    const pitchMm   = 1000 / ledsPerMeter;          // interasse nominale mm
-    const circMm    = Math.PI * diamMm;              // circonferenza
-    const ledExact  = circMm / pitchMm;              // LED ideali (float)
-    const ledRound  = Math.round(ledExact);          // LED interi
-    const spacingEff = circMm / ledRound;            // interasse effettivo
+    // keep slider in sync (clamped)
+    diamSlider.value = Math.min(1000, Math.max(10, Math.round(diamMm)));
 
-    const error = Math.abs(ledExact - ledRound) / ledExact * 100; // % errore
+    const pitchMm    = 1000 / ledsPerMeter;
+    const circMm     = Math.PI * diamMm;
+    const ledExact   = circMm / pitchMm;
+    const ledRound   = Math.round(ledExact);
+    const spacingEff = circMm / ledRound;
+    const error      = Math.abs(ledExact - ledRound) / ledExact * 100;
 
-    resCirc.textContent     = circMm.toFixed(1);
-    resLedExact.textContent = ledExact.toFixed(2);
-    resLedRound.textContent = ledRound;
-    resSpacing.textContent  = spacingEff.toFixed(2);
+    resCirc.textContent      = circMm.toFixed(1);
+    resLedExact.textContent  = ledExact.toFixed(2);
+    resLedRound.textContent  = ledRound;
+    resSpacing.textContent   = spacingEff.toFixed(2);
+    noteText.textContent     = `Interasse nominale: ${pitchMm.toFixed(2)} mm  |  Errore distribuzione: ${error.toFixed(2)}%`;
 
-    noteText.textContent = `Interasse nominale: ${pitchMm.toFixed(2)} mm  |  Errore distribuzione: ${error.toFixed(2)}%`;
-
-    // Badge qualità
     if (error < 1) {
       badge.textContent = '✅ Distribuzione perfetta';
       badge.className   = 'perfect-badge badge-perfect';
@@ -257,74 +340,117 @@
       badge.className   = 'perfect-badge badge-off';
     }
 
-    drawRing(ledRound, error);
+    // Suggestions
+    const sugg = findPerfectDiameters(ledsPerMeter, diamMm);
+    suggLower = sugg.lower;
+    suggUpper = sugg.upper;
+
+    document.getElementById('sLowerVal').textContent  = sugg.lower.diam.toFixed(1) + ' mm';
+    document.getElementById('sLowerLed').textContent  = sugg.lower.leds + ' LED';
+    document.getElementById('sLowerDelta').textContent = `Δ ${(diamMm - sugg.lower.diam).toFixed(1)} mm`;
+    document.getElementById('sUpperVal').textContent  = sugg.upper.diam.toFixed(1) + ' mm';
+    document.getElementById('sUpperLed').textContent  = sugg.upper.leds + ' LED';
+    document.getElementById('sUpperDelta').textContent = `Δ ${(sugg.upper.diam - diamMm).toFixed(1)} mm`;
+
+    drawRing(diamMm, ledRound, error, ledsPerMeter);
   }
 
-  function drawRing(ledCount, errorPct) {
-    const W = canvas.width;
-    const H = canvas.height;
+  function drawRing(diamMm, ledCount, errorPct, ledsPerMeter) {
+    const W = canvas.width, H = canvas.height;
     ctx.clearRect(0, 0, W, H);
+    const cx = W / 2, cy = H / 2;
 
-    const cx = W / 2;
-    const cy = H / 2;
-    const R  = W * 0.38;
-    const rInner = R * 0.72;
-
-    // Background glow
-    const grd = ctx.createRadialGradient(cx, cy, rInner * 0.5, cx, cy, R * 1.1);
-    grd.addColorStop(0, '#1a1a2e');
-    grd.addColorStop(1, '#0f0f1a');
-    ctx.fillStyle = grd;
+    // Background
+    ctx.fillStyle = '#0f0f1a';
     ctx.fillRect(0, 0, W, H);
 
-    // Ring track
+    const pitchMm = 1000 / ledsPerMeter;
+
+    // The "circle" diameter is the track center.
+    // Outer strip: LEDs sit outside the circle (track center = diam/2 + half_led_size)
+    // Inner strip: LEDs sit inside (track center = diam/2 - half_led_size)
+    // We use a fixed visual ring width.
+    const R = W * 0.34; // visual radius of the drawn circle
+    const stripOffset = R * 0.13; // distance from circle edge to LED center
+
+    const ledColor  = errorPct < 1 ? '#34d399' : errorPct < 3 ? '#f59e0b' : '#f87171';
+    const glowColor = errorPct < 1 ? '#34d39933' : errorPct < 3 ? '#f59e0b33' : '#f8717133';
+    const trackColor = '#2d2d4e';
+
+    // Draw reference circle (the printed ring)
     ctx.beginPath();
     ctx.arc(cx, cy, R, 0, Math.PI * 2);
-    ctx.strokeStyle = '#2d2d4e';
-    ctx.lineWidth   = R - rInner;
+    ctx.strokeStyle = '#3a3a5c';
+    ctx.lineWidth = 2;
+    ctx.setLineDash([6, 4]);
     ctx.stroke();
+    ctx.setLineDash([]);
 
-    // LED dots
-    const ledColor = errorPct < 1 ? '#34d399' : errorPct < 3 ? '#f59e0b' : '#f87171';
-    const glowColor = errorPct < 1 ? '#34d39944' : errorPct < 3 ? '#f59e0b44' : '#f8717144';
-    const rMid = (R + rInner) / 2;
-    const ledRadius = Math.max(2, Math.min(7, rMid * Math.PI / ledCount * 0.38));
-
-    for (let i = 0; i < ledCount; i++) {
-      const angle = (i / ledCount) * Math.PI * 2 - Math.PI / 2;
-      const x = cx + rMid * Math.cos(angle);
-      const y = cy + rMid * Math.sin(angle);
-
-      // Glow
-      const g = ctx.createRadialGradient(x, y, 0, x, y, ledRadius * 2.5);
-      g.addColorStop(0, glowColor);
-      g.addColorStop(1, 'transparent');
+    function drawStrip(rCenter, count) {
+      const trackWidth = Math.max(8, Math.min(22, rCenter * Math.PI / count * 0.7));
+      // Track arc
       ctx.beginPath();
-      ctx.arc(x, y, ledRadius * 2.5, 0, Math.PI * 2);
-      ctx.fillStyle = g;
-      ctx.fill();
+      ctx.arc(cx, cy, rCenter, 0, Math.PI * 2);
+      ctx.strokeStyle = trackColor;
+      ctx.lineWidth = trackWidth;
+      ctx.stroke();
 
-      // Dot
-      ctx.beginPath();
-      ctx.arc(x, y, ledRadius, 0, Math.PI * 2);
-      ctx.fillStyle = ledColor;
-      ctx.fill();
+      const ledRadius = Math.max(2, Math.min(8, rCenter * Math.PI / count * 0.32));
+
+      for (let i = 0; i < count; i++) {
+        const angle = (i / count) * Math.PI * 2 - Math.PI / 2;
+        const x = cx + rCenter * Math.cos(angle);
+        const y = cy + rCenter * Math.sin(angle);
+
+        // Glow
+        const g = ctx.createRadialGradient(x, y, 0, x, y, ledRadius * 3);
+        g.addColorStop(0, glowColor);
+        g.addColorStop(1, 'transparent');
+        ctx.beginPath();
+        ctx.arc(x, y, ledRadius * 3, 0, Math.PI * 2);
+        ctx.fillStyle = g;
+        ctx.fill();
+
+        // LED dot
+        ctx.beginPath();
+        ctx.arc(x, y, ledRadius, 0, Math.PI * 2);
+        ctx.fillStyle = ledColor;
+        ctx.fill();
+      }
+    }
+
+    if (drawMode === 'inner' || drawMode === 'both') {
+      drawStrip(R - stripOffset, ledCount);
+    }
+    if (drawMode === 'outer' || drawMode === 'both') {
+      drawStrip(R + stripOffset, ledCount);
     }
 
     // Center label
     ctx.fillStyle = '#a78bfa';
-    ctx.font = 'bold 22px Segoe UI';
+    ctx.font = 'bold 20px Segoe UI';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText(ledCount + ' LED', cx, cy - 10);
-    ctx.font = '13px Segoe UI';
+    ctx.fillText(ledCount + ' LED', cx, cy - 12);
+    ctx.font = '12px Segoe UI';
     ctx.fillStyle = '#6b7280';
-    ctx.fillText('Ø ' + diamSlider.value + ' mm', cx, cy + 14);
+    ctx.fillText('Ø ' + parseFloat(diamInput.value).toFixed(1) + ' mm', cx, cy + 10);
+    ctx.fillText(errorPct.toFixed(2) + '% errore', cx, cy + 26);
   }
 
+  // Sync slider → input
+  diamSlider.addEventListener('input', () => {
+    diamInput.value = diamSlider.value;
+    calculate();
+  });
+  // Sync input → slider
+  diamInput.addEventListener('input', () => {
+    diamSlider.value = Math.min(1000, Math.max(10, Math.round(parseFloat(diamInput.value) || 10)));
+    calculate();
+  });
   ledsInput.addEventListener('input', calculate);
-  diamSlider.addEventListener('input', calculate);
-  calculate();
+
+  setMode('both');
 </script>
 
 </body>
